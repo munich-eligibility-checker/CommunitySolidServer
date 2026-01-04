@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  community-server:
+    build: .
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./data:/data
+    environment:
+      - CSS_ROOT_FILE_PATH=/data
+      # You can change the config here if needed, e.g., config/memory.json, config/file.json
+      - CSS_CONFIG=config/file.json
