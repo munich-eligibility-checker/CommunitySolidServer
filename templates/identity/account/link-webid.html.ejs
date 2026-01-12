@@ -1,33 +1,33 @@
-<h1>Create account</h1>
+<h1>WebID verknüpfen</h1>
 <form method="post" id="mainForm">
   <p class="error" id="error"></p>
 
   <fieldset>
-    <p>Choose the WebID to link to this account</p>
+    <p>Wählen Sie die WebID, die mit diesem Konto verknüpft werden soll</p>
     <ol>
       <li>
         <label for="webId">WebID</label>
-        <input id="webId" type="text" name="webId" autofocus>
+        <input id="webId" type="text" name="webId" autofocus placeholder="https://example.org/profile#me">
       </li>
     </ol>
   </fieldset>
 
   <ul class="actions">
-    <li><button type="submit" name="submit" disabled>Link WebID to account</button></li>
-    <li><button type="button" id="account-link">Back</button></li>
+    <li><button type="submit" name="submit" disabled>WebID mit Konto verknüpfen</button></li>
+    <li><button type="button" id="account-link">Zurück</button></li>
   </ul>
 </form>
 <div class="hidden" id="response">
   <p>
-    You will need to manually add the following triple
-    to your existing WebID document <em id="response-existingWebId"></em>
-    to indicate that you trust this server as a login provider:
+    Sie müssen das folgende Triple manuell zu Ihrem bestehenden WebID-Dokument
+    <em id="response-existingWebId"></em> hinzufügen,
+    um anzuzeigen, dass Sie diesem Server als Anmeldeanbieter vertrauen:
   </p>
   <p>
     <strong><code id="oidc-triple"></code></strong>
   </p>
 
-  <p class="actions"><button type="button" id="response-account-link">Back</button></p>
+  <p class="actions"><button type="button" id="response-account-link">Zurück</button></p>
 </div>
 
 

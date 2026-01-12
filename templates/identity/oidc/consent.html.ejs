@@ -1,8 +1,8 @@
-<h1>An application is requesting access</h1>
+<h1>Eine Anwendung fordert Zugriff an</h1>
 <p class="error" id="error"></p>
 <p>
-  Do you trust this application
-  to read and write data on your behalf?
+  Vertrauen Sie dieser Anwendung,
+  Daten in Ihrem Namen zu lesen und zu schreiben?
 </p>
 <div style="display: flex;">
   <img id="client_logo" width="40" height="40" style="margin-top: 1em; padding-left: 2em; visibility: collapse;">
@@ -10,7 +10,7 @@
 </div>
 <form method="post" id="mainForm">
   <fieldset>
-    <legend>Choose your WebID to authorize</legend>
+    <legend>Wählen Sie Ihre WebID zur Autorisierung</legend>
     <ol id="webIdList">
     </ol>
   </fieldset>
@@ -18,16 +18,16 @@
   <fieldset>
     <ol>
       <li class="checkbox">
-        <label><input type="checkbox" name="remember" value="true" checked>Remember this client</label>
+        <label><input type="checkbox" name="remember" value="true" checked>Diese Anwendung merken</label>
       </li>
     </ol>
   </fieldset>
 
   <p class="actions">
-    <button id="authorize" type="submit" disabled autofocus>Authorize</button>
-    <button id="cancel" type="button">Cancel</button>
-    <button id="edit-account" type="button" class="alternate">Edit account</button>
-    <button id="switch-account" type="button" class="alternate">Use a different account</button>
+    <button id="authorize" type="submit" disabled autofocus>Autorisieren</button>
+    <button id="cancel" type="button">Abbrechen</button>
+    <button id="edit-account" type="button" class="alternate">Konto bearbeiten</button>
+    <button id="switch-account" type="button" class="alternate">Anderes Konto verwenden</button>
   </p>
 </form>
 
@@ -43,7 +43,7 @@
 
     const { webIds } = await fetchJson(controls.oidc.webId);
     if (webIds.length === 0) {
-      setError('No WebIDs are assigned to this account. Edit the account to add one.');
+      setError('Diesem Konto sind keine WebIDs zugewiesen. Bearbeiten Sie das Konto, um eine hinzuzufügen.');
     }
     setVisibility('authorize', webIds.length > 0);
 
@@ -60,7 +60,7 @@
 
     const { client } = await fetchJson(controls.oidc.consent);
     showClientInfo('Name', client.client_name);
-    showClientInfo('ID', client.client_id);
+    showClientInfo('Kennung', client.client_id);
     showClientLogo(client.logo_uri, `[${client.client_name} Logo]`);
 
     addPostListener(() => consent(controls));

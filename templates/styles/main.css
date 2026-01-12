@@ -1,27 +1,43 @@
-@font-face {
-  font-family: Raleway;
-  font-style: normal;
-  font-weight: 100 900;
-  src: url(../fonts/raleway.woff2) format('woff2');
-}
-
-@font-face {
-  font-family: Raleway;
-  font-style: italic;
-  font-weight: 100 900;
-  src: url(../fonts/raleway-italic.woff2) format('woff2');
-}
+/* Munich Design System - Muenchen.de Fonts */
+@import url('https://assets.muenchen.de/mde/1.1.6/css/fonts.css');
 
 html {
-  --solid-purple: #005A9F;
-  --solid-blue: #1C98D5;
-  --solid-dark: #162542;
-  --solid-gray: #6a6a6a;
+  /* Brand Colors - Munich Design System */
+  --mde-color-brand-mde-blue: #005A9F;
+  --mde-color-brand-mde-blue-light: #337BB2;
+  --mde-color-brand-mde-blue-dark: #004376;
+  --mde-color-brand-mde-blue-x-dark: #002D4F;
+  --mde-color-brand-mde-cyan: #1B98D5;
+  --mde-color-brand-mde-yellow: #FFE400;
+
+  /* Neutral Colors */
+  --mde-color-neutral-grey: #3A5368;
+  --mde-color-neutral-grey-light: #617586;
+  --mde-color-neutral-grey-x-light: #9CA8B3;
+  --mde-color-neutral-grey-dark: #2A3F4F;
+  --mde-color-neutral-beau-blue: #BDD4EA;
+  --mde-color-neutral-beau-blue-light: #E5EEF5;
+  --mde-color-neutral-beau-blue-x-light: #F2F6FA;
+
+  /* Status Colors */
+  --mde-color-status-success: #3A7F53;
+  --mde-color-status-success-light: #95B9A2;
+  --mde-color-status-warning: #FCAA67;
+  --mde-color-status-warning-light: #FDD1AC;
+  --mde-color-status-error: #984447;
+  --mde-color-status-error-light: #C79A9B;
+  --mde-color-signal-success: #28a745;
+
+  /* Legacy aliases for backwards compatibility */
+  --solid-purple: var(--mde-color-brand-mde-blue);
+  --solid-blue: var(--mde-color-brand-mde-cyan);
+  --solid-dark: var(--mde-color-neutral-grey-dark);
+  --solid-gray: var(--mde-color-neutral-grey);
 
   height: 100%;
 
-  background-color: var(--solid-purple);
-  background-image: linear-gradient(135deg, var(--solid-purple) 10%, var(--solid-blue) 90%);
+  background-color: var(--mde-color-brand-mde-blue);
+  background-image: linear-gradient(135deg, var(--mde-color-brand-mde-blue) 10%, var(--mde-color-brand-mde-cyan) 90%);
   background-repeat: no-repeat;
   background-attachment: fixed;
   overscroll-behavior: none;
@@ -29,10 +45,14 @@ html {
 
 body,
 input,
-button {
-  font: 12pt/1.6 Raleway, sans-serif;
-  font-weight: 300;
-  color: var(--solid-dark);
+button,
+select,
+textarea {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--mde-color-neutral-grey);
 }
 
 body {
@@ -42,14 +62,14 @@ body {
   padding: 2em 3em 1em;
 
   background: white;
-  box-shadow: 5px 5px 2px rgba(0, 0, 0, .1);
-  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
 }
 
 @media (max-width: 800px) {
   body {
     margin: 0;
-    padding: 1em 2em;
+    padding: 1.5em 2em;
   }
 }
 
@@ -64,11 +84,12 @@ header {
 
 header h1 {
   margin: 0;
-
-  font-size: 3em;
-  line-height: 1;
-  letter-spacing: .25px;
-  font-weight: 600;
+  font-family: "Roboto Condensed", Arial, sans-serif;
+  font-size: 2.375rem;
+  line-height: 1.25;
+  letter-spacing: 0.25px;
+  font-weight: 700;
+  color: var(--mde-color-brand-mde-blue);
 }
 
 header img {
@@ -84,7 +105,7 @@ header img {
   }
 
   header h1 {
-    font-size: 2em;
+    font-size: 1.875rem;
   }
 }
 
@@ -106,21 +127,25 @@ header img {
 
 main h1 {
   margin: 1em 0 0;
-
-  font-size: 2em;
+  font-family: "Roboto Condensed", Arial, sans-serif;
+  font-size: 1.75rem;
   font-weight: 700;
+  line-height: 1.25;
+  color: var(--mde-color-brand-mde-blue-dark);
 }
 
 main h2 {
   margin: 1em 0 0;
-
-  font-size: 1.5em;
-  font-weight: 600;
-  color: var(--solid-gray);
+  font-family: "Roboto Condensed", Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--mde-color-neutral-grey);
 }
 
 main p {
   margin: .75em 0;
+  line-height: 1.6;
 }
 
 main h1+p,
@@ -131,8 +156,8 @@ main h2+p {
 footer {
   margin-top: 2em;
   text-align: right;
-  font-size: 90%;
-  color: #666666;
+  font-size: 0.875rem;
+  color: var(--mde-color-neutral-grey-light);
 }
 
 strong {
@@ -140,12 +165,15 @@ strong {
 }
 
 a {
-  color: var(--solid-purple);
+  color: var(--mde-color-brand-mde-blue);
   font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--solid-blue);
+  color: var(--mde-color-brand-mde-cyan);
+  text-decoration: underline;
 }
 
 footer a {
@@ -154,7 +182,10 @@ footer a {
 }
 
 code {
-  font-size: 90%;
+  font-size: 0.875rem;
+  background: var(--mde-color-neutral-beau-blue-x-light);
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 
 ul {
@@ -174,7 +205,7 @@ ul>li {
 }
 
 ul>li::marker {
-  color: var(--solid-purple);
+  color: var(--mde-color-brand-mde-blue);
 }
 
 ul ul,
@@ -189,20 +220,26 @@ dl {
 }
 
 dl dt {
-  font-weight: bold;
+  font-weight: 600;
   float: left;
   clear: left;
   min-width: 4em;
+  color: var(--mde-color-neutral-grey);
 }
 
 dl dt:after {
-  content: ": ";
+  content: ": ";
 }
 
 pre {
   overflow-x: scroll;
+  background: var(--mde-color-neutral-beau-blue-x-light);
+  padding: 16px;
+  border-radius: 4px;
+  border: 1px solid var(--mde-color-neutral-beau-blue);
 }
 
+/* Form Elements */
 fieldset {
   border: none;
   margin: 0;
@@ -212,10 +249,10 @@ fieldset {
 
 fieldset>legend {
   margin: .5em 0 0;
-
-  font-size: 1.5em;
-  font-weight: 600;
-  color: var(--solid-gray);
+  font-family: "Roboto Condensed", Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--mde-color-neutral-grey);
 }
 
 fieldset>legend+p {
@@ -223,7 +260,7 @@ fieldset>legend+p {
 }
 
 fieldset>fieldset>legend {
-  font-size: 1.2em;
+  font-size: 1.125rem;
 }
 
 .hidden legend {
@@ -254,6 +291,7 @@ fieldset ol ol li:not(.checkbox, .radio) {
 fieldset li label {
   font-weight: 600;
   cursor: pointer;
+  color: var(--mde-color-neutral-grey);
 }
 
 fieldset li li label {
@@ -284,75 +322,128 @@ fieldset li p {
   }
 }
 
-input {
-  border: 1px solid var(--solid-purple);
+/* Input Fields - Munich Design System Style */
+input,
+select,
+textarea {
+  border: 2px solid var(--mde-color-neutral-grey-light);
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  background: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--mde-color-brand-mde-blue-light);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--mde-color-brand-mde-blue);
+  box-shadow: 0 0 0 3px rgba(0, 90, 159, 0.15);
+}
+
+input::placeholder {
+  color: var(--mde-color-neutral-grey-x-light);
+}
+
+/* Buttons - Munich Design System Style */
 button,
 .button {
   cursor: pointer;
-  padding: .5em 2em;
-
-  border: 0px;
-  background-color: var(--solid-purple);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--mde-color-brand-mde-blue);
   color: white;
   text-decoration: none;
   display: inline-block;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
 }
 
 button:hover,
 .button:hover {
-  background-color: var(--solid-blue);
+  background-color: var(--mde-color-brand-mde-blue-dark);
   color: white;
+  box-shadow: 0 4px 12px rgba(0, 90, 159, 0.3);
+}
+
+button:active,
+.button:active {
+  transform: translateY(1px);
 }
 
 button[type=submit],
 .button.submit {
-  font-weight: 600;
+  font-weight: 700;
+  background-color: var(--mde-color-brand-mde-blue);
+}
+
+button[type=submit]:hover,
+.button.submit:hover {
+  background-color: var(--mde-color-brand-mde-blue-dark);
 }
 
 button:disabled {
-  background-color: var(--solid-gray);
+  background-color: var(--mde-color-neutral-grey-x-light);
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
 button.alternate {
   display: block;
   padding: 0;
   margin: .5em 0;
-
   background: none;
-  color: var(--solid-purple);
-  font-weight: normal;
+  color: var(--mde-color-brand-mde-blue);
+  font-weight: 500;
 }
 
 button.alternate:hover {
-  color: var(--solid-blue);
+  color: var(--mde-color-brand-mde-cyan);
+  background: none;
+  box-shadow: none;
 }
 
-input:focus,
-button:focus {
-  outline: var(--solid-blue) solid 1.5px;
+button:focus,
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 90, 159, 0.3);
 }
 
+/* Error Messages */
 p.error {
-  color: #ad0f0f;
+  color: var(--mde-color-status-error);
   font-weight: 600;
+  background: var(--mde-color-status-error-light);
+  padding: 12px 16px;
+  border-radius: 4px;
+  border-left: 4px solid var(--mde-color-status-error);
 }
 
 p.error:empty {
   display: none;
 }
 
+/* Action Groups */
 .actions {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: .5em 0 1em 0;
+  margin: 1em 0 1.5em 0;
+  gap: 12px;
 }
 
 .actions>button,
 .actions>.button {
-  margin: .5em .5em;
+  margin: 0;
 }
 
 ul.actions {
@@ -361,12 +452,13 @@ ul.actions {
   flex-wrap: wrap;
   padding: 0;
   margin: 0 0 1em 0;
+  gap: 16px;
 }
 
 ul.actions>li {
   list-style-type: none;
   display: inline;
-  margin-right: 1em;
+  margin: 0;
 }
 
 /* Directly hide hidden elements. */
@@ -386,20 +478,33 @@ form .hidden:not(button) {
   overflow: hidden;
 }
 
+/* Container Lists */
 ul.container>li {
   margin: 0.25em 0;
   list-style-type: none;
+  padding: 12px 16px;
+  background: var(--mde-color-neutral-beau-blue-x-light);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+ul.container>li:hover {
+  background: var(--mde-color-neutral-beau-blue-light);
 }
 
 ul.container>li.container>a {
-  font-weight: 800;
+  font-weight: 700;
+  color: var(--mde-color-brand-mde-blue-dark);
 }
 
+/* Breadcrumbs */
 ol.breadcrumbs {
   list-style: none;
-  padding: 0;
-  margin: 0 0 0 .25em;
-  font-size: 90%;
+  padding: 12px 16px;
+  margin: 0 0 1em .25em;
+  font-size: 0.875rem;
+  background: var(--mde-color-neutral-beau-blue-x-light);
+  border-radius: 4px;
 }
 
 ol.breadcrumbs>li {
@@ -407,27 +512,254 @@ ol.breadcrumbs>li {
 }
 
 ol.breadcrumbs>li>a {
-  color: var(--solid-gray);
+  color: var(--mde-color-neutral-grey-light);
   font-weight: 400;
   white-space: nowrap;
 }
 
 ol.breadcrumbs>li>a:hover {
-  color: var(--solid-purple);
+  color: var(--mde-color-brand-mde-blue);
 }
 
 ol.breadcrumbs>li:not(:last-child):after {
-  padding: 0 .25em;
-  content: ' > ';
-  font-weight: 300;
-  color: var(--solid-gray);
+  padding: 0 .5em;
+  content: ' › ';
+  font-weight: 400;
+  color: var(--mde-color-neutral-grey-x-light);
 }
 
 ol.breadcrumbs>li:last-child {
-  font-weight: 500;
-  color: var(--solid-purple);
+  font-weight: 600;
+  color: var(--mde-color-brand-mde-blue);
 }
 
 ol.breadcrumbs>li:only-child {
   display: none;
+}
+
+/* Cards and Panels - Munich Design System Style */
+.card,
+.panel {
+  background: white;
+  border: 2px solid var(--mde-color-neutral-beau-blue);
+  border-radius: 4px;
+  padding: 24px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover,
+.panel:hover {
+  border-color: var(--mde-color-brand-mde-blue);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-title,
+.panel-title {
+  font-family: "Roboto Condensed", Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--mde-color-brand-mde-blue-dark);
+  margin: 0 0 16px 0;
+}
+
+/* Info/Callout Boxes */
+.callout,
+.info-box {
+  background: var(--mde-color-neutral-beau-blue-x-light);
+  padding: 16px 20px;
+  border-radius: 4px;
+  border-left: 4px solid var(--mde-color-brand-mde-blue);
+  margin: 1em 0;
+}
+
+.callout.success {
+  border-left-color: var(--mde-color-status-success);
+  background: var(--mde-color-status-success-light);
+}
+
+.callout.warning {
+  border-left-color: var(--mde-color-status-warning);
+  background: var(--mde-color-status-warning-light);
+}
+
+.callout.error {
+  border-left-color: var(--mde-color-status-error);
+  background: var(--mde-color-status-error-light);
+}
+
+/* Badge Styles */
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: var(--mde-color-brand-mde-blue);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.badge.success {
+  background-color: var(--mde-color-status-success);
+}
+
+.badge.warning {
+  background-color: var(--mde-color-status-warning);
+  color: var(--mde-color-neutral-grey-dark);
+}
+
+.badge.error {
+  background-color: var(--mde-color-status-error);
+}
+
+/* Chip/Tag Styles */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: var(--mde-color-neutral-beau-blue-light);
+  color: var(--mde-color-neutral-grey);
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Progress Bar */
+.progress-bar-track {
+  height: 12px;
+  background: var(--mde-color-neutral-beau-blue-light);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--mde-color-brand-mde-blue);
+  border-radius: 6px;
+  transition: width 0.4s ease-out;
+}
+
+.progress-bar-fill.complete {
+  background: var(--mde-color-signal-success);
+}
+
+/* Tooltip Styles */
+.tooltip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--mde-color-brand-mde-blue);
+  background: var(--mde-color-neutral-beau-blue-x-light);
+  border: 1px solid var(--mde-color-brand-mde-blue);
+  border-radius: 50%;
+  cursor: help;
+}
+
+.tooltip:hover {
+  background: var(--mde-color-brand-mde-blue);
+  color: white;
+}
+
+/* Form Labels - Munich Style */
+.m-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--mde-color-neutral-grey);
+}
+
+.m-textfield {
+  width: 100%;
+  border: 2px solid var(--mde-color-neutral-grey-light);
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.m-textfield:focus {
+  border-color: var(--mde-color-brand-mde-blue);
+  outline: none;
+}
+
+.m-textfield.field-required {
+  border-color: var(--mde-color-status-warning);
+}
+
+/* Form Group */
+.m-form-group {
+  margin-bottom: 20px;
+}
+
+/* Two Column Layout */
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .two-column-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+/* Responsive Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+th,
+td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--mde-color-neutral-beau-blue);
+}
+
+th {
+  background: var(--mde-color-neutral-beau-blue-x-light);
+  font-weight: 600;
+  color: var(--mde-color-neutral-grey);
+}
+
+tr:hover {
+  background: var(--mde-color-neutral-beau-blue-x-light);
+}
+
+/* Loading States */
+.skeleton {
+  background: linear-gradient(90deg, var(--mde-color-neutral-beau-blue-light) 25%, var(--mde-color-neutral-beau-blue-x-light) 50%, var(--mde-color-neutral-beau-blue-light) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Link Styles for Actions */
+a.link {
+  color: var(--mde-color-brand-mde-blue);
+  font-weight: 500;
+  padding: 8px 0;
+  display: inline-block;
+}
+
+a.link:hover {
+  color: var(--mde-color-brand-mde-cyan);
 }

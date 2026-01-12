@@ -36,7 +36,7 @@ async function postJsonForm(target = '', expectRedirect = false, transform = jso
       location.href = body.location;
     } else {
       if (expectRedirect) {
-        throw new Error('Expected a location field in the response.');
+        throw new Error('Ein location-Feld wurde in der Antwort erwartet.');
       }
       return body;
     }
@@ -181,7 +181,7 @@ function setRedirectClick(element, url) {
 function validatePasswordConfirmation(passwordId, formId = 'mainForm', confirmPasswordId = 'confirmPassword') {
   const formData = new FormData(document.getElementById(formId));
   if (formData.get(passwordId) !== formData.get(confirmPasswordId)) {
-    throw new Error('Password confirmation does not match the password!');
+    throw new Error('Die Passwortbestätigung stimmt nicht mit dem Passwort überein!');
   }
 }
 
@@ -198,7 +198,7 @@ function validatePasswordConfirmation(passwordId, formId = 'mainForm', confirmPa
  */
 function createUrlDeleteElement(parent, url, fetchParams, confirmMsg, finishMsg) {
   const del = document.createElement('a');
-  del.textContent = '(delete)';
+  del.textContent = '(löschen)';
   del.href = '#';
   del.addEventListener('click', async() => {
     // eslint-disable-next-line no-alert

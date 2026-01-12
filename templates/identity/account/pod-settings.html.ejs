@@ -1,11 +1,11 @@
-<h1>Pod settings</h1>
+<h1>Pod-Einstellungen</h1>
 <p class="error" id="error"></p>
 <h2 id="pod"></h2>
 
-<h3>Owners</h3>
+<h3>Eigentümer</h3>
 <p>
-  All these WebIDs have full control access over all resources in the pod.
-  If visible, these will be returned as a header to all requests targeting the pod.
+  Alle diese WebIDs haben vollen Kontrollzugriff auf alle Ressourcen im Pod.
+  Falls sichtbar, werden diese als Header bei allen Anfragen an den Pod zurückgegeben.
 </p>
 <ul id="owners"></ul>
 
@@ -13,18 +13,18 @@
   <p class="error" id="error"></p>
 
   <fieldset>
-    <p>Add the WebID to add to the list of owners</p>
+    <p>WebID hinzufügen, die zur Liste der Eigentümer hinzugefügt werden soll</p>
     <ol>
       <li>
         <label for="webId">WebID:</label>
-        <input id="webId" type="text" name="webId" autofocus>
+        <input id="webId" type="text" name="webId" autofocus placeholder="https://example.org/profile#me">
       </li>
     </ol>
   </fieldset>
 
   <p class="actions">
-    <button type="submit" name="submit" disabled>Add owner</button>
-    <button type="button" id="account-link">Back</button>
+    <button type="submit" name="submit" disabled>Eigentümer hinzufügen</button>
+    <button type="button" id="account-link">Zurück</button>
   </p>
 </form>
 
@@ -48,7 +48,7 @@
       checkbox.type = 'checkbox';
       checkbox.checked = visible;
       label.append(checkbox);
-      label.append('Visible');
+      label.append('Sichtbar');
       li.append(label);
       checkbox.addEventListener('click', async() => {
         const res = await fetch('', {
@@ -69,7 +69,7 @@
         body: JSON.stringify({ webId, remove: true }),
       }
       const del = createUrlDeleteElement(li, '', fetchParams,
-        `Are you sure you want to remove ${webId} as an owner of ${baseUrl}?`);
+        `Sind Sie sicher, dass Sie ${webId} als Eigentümer von ${baseUrl} entfernen möchten?`);
       li.append(' ');
       li.append(del);
     }

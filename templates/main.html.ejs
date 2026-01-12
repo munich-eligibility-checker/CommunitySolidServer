@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
-  <link rel="stylesheet" href="<%= baseUrl -%>.well-known/css/styles/main.css?v=8" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>M-Pod Server</title>
+  <link rel="icon" href="<%= baseUrl -%>.well-known/css/images/favicon.ico">
+  <link rel="stylesheet" href="<%= baseUrl -%>.well-known/css/styles/main.css?v=9" type="text/css">
   <script type="text/javascript" src="<%= baseUrl -%>.well-known/css/scripts/util.js?v=7"></script>
 </head>
 
 <body>
   <header>
-    <a href="<%= baseUrl %>"><img src="<%= baseUrl -%>.well-known/css/images/muenchen.svg" alt="[Solid logo]" /></a>
+    <a href="<%= baseUrl %>"><img src="<%= baseUrl -%>.well-known/css/images/muenchen.svg" alt="[München Logo]" /></a>
     <h1>M-Pod Server</h1>
   </header>
   <main>
     <%- htmlBody %>
   </main>
+  <footer>
+    <p>Powered by <a href="https://muenchen.de" target="_blank" rel="noopener">muenchen.de</a> &amp; <a href="https://solidproject.org" target="_blank" rel="noopener">Solid</a></p>
+  </footer>
 </body>
 
 </html>

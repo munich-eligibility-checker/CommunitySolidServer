@@ -1,14 +1,14 @@
-<h1>Choose a login method</h1>
+<h1>Anmeldemethode wählen</h1>
 <form method="post" id="mainForm">
   <p class="error" id="error"></p>
 
   <fieldset>
-    <legend>Login methods</legend>
+    <legend>Anmeldemethoden</legend>
     <ol id="loginList">
     </ol>
   </fieldset>
 
-  <p class="actions"><button id="submit" type="submit" name="submit" disabled>Confirm login method</button></p>
+  <p class="actions"><button id="submit" type="submit" name="submit" disabled>Anmeldemethode bestätigen</button></p>
 </form>
 
 <script>
@@ -21,7 +21,7 @@
     const entries = Object.entries(json.logins);
 
     if (entries.length === 0) {
-      setError('No login methods are configured on this server');
+      setError('Auf diesem Server sind keine Anmeldemethoden konfiguriert');
       setVisibility('submit', false);
     } else if (entries.length === 1) {
       // Redirect to matching login page if there is only 1 option

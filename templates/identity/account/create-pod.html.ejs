@@ -1,32 +1,32 @@
-<h1>Create account</h1>
+<h1>Pod erstellen</h1>
 <form method="post" id="mainForm">
   <p class="error" id="error"></p>
 
   <fieldset>
-    <p>Choose a name for your pod. It will be converted to lower case.</p>
+    <p>Wählen Sie einen Namen für Ihren Pod. Er wird in Kleinbuchstaben umgewandelt.</p>
     <ol>
       <li>
         <label for="name">Name</label>
-        <input id="name" type="text" name="name" autofocus>
+        <input id="name" type="text" name="name" autofocus placeholder="mein-pod">
       </li>
     </ol>
-    <p>Choose which WebID will have initial write permissions on the pod.</p>
+    <p>Wählen Sie, welche WebID anfängliche Schreibrechte auf dem Pod haben soll.</p>
     <ol>
       <li class="radio">
         <label>
           <input type="radio" id="internalWebIdOn" name="internalWebId" value="on" checked>
-          Use the WebID in the Pod and register it to your account.
+          WebID im Pod verwenden und mit Ihrem Konto verknüpfen.
         </label>
       </li>
       <li class="radio">
         <label>
           <input type="radio" id="internalWebIdOff" name="internalWebId" value="">
-          Use an external WebID.
+          Externe WebID verwenden.
         </label>
         <ol id="existingWebIdForm">
           <li>
-            <label for="webId">Existing WebID:</label>
-            <input id="webId" type="text" name="webId">
+            <label for="webId">Bestehende WebID:</label>
+            <input id="webId" type="text" name="webId" placeholder="https://example.org/profile#me">
           </li>
         </ol>
       </li>
@@ -34,29 +34,29 @@
   </fieldset>
 
   <ul class="actions">
-    <li><button type="submit" name="submit" disabled>Create pod</button></li>
-    <li><button type="button" id="account-link">Back</button></li>
+    <li><button type="submit" name="submit" disabled>Pod erstellen</button></li>
+    <li><button type="button" id="account-link">Zurück</button></li>
   </ul>
 </form>
 <div class="hidden" id="response">
-  <h2>Your new Pod</h2>
+  <h2>Ihr neuer Pod</h2>
   <p>
-    Your new Pod is located at <a id="response-podBaseUrl" href="" class="link"></a>.
+    Ihr neuer Pod befindet sich unter <a id="response-podBaseUrl" href="" class="link"></a>.
     <br>
-    You can store your documents and data there.
-    All WebIDs registered to this account have control access to this pod.
+    Sie können dort Ihre Dokumente und Daten speichern.
+    Alle mit diesem Konto verknüpften WebIDs haben Kontrollzugriff auf diesen Pod.
   </p>
 
   <div id="response-linkWebId">
-    <h2>Your new WebID</h2>
+    <h2>Ihre neue WebID</h2>
     <p>
-      Your new WebID is <a id="response-webId" href="" class="link"></a>.
+      Ihre neue WebID ist <a id="response-webId" href="" class="link"></a>.
       <br>
-      You can use this identifier to interact with Solid pods and apps.
+      Sie können diese Kennung verwenden, um mit Solid Pods und Apps zu interagieren.
     </p>
   </div>
 
-  <p class="actions"><button type="button" id="response-account-link">Back</button></p>
+  <p class="actions"><button type="button" id="response-account-link">Zurück</button></p>
 </div>
 
 
